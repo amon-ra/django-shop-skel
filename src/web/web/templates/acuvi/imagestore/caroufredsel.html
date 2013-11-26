@@ -1,0 +1,75 @@
+{% load assign thumbnail sekizai_tags %}
+  <h5 class="subpage-title">
+    <span>{{ carousel.title }}</span>
+    <!-- Controls -->
+    <span id="client-next" class="next"><i class="icon-angle-right"></i></span>
+    <span id="client-prev" class="prev"><i class="icon-angle-left"></i></span>
+  </h5>
+  <div class="row">
+    <div id="caroufredsel-clients-container">
+    {% for image in images %}
+      {% thumbnail image.image carousel.full_size as full %}
+        {% if forloop.counter0 == 0 %}
+          {% assign name="init_url" %}{{ full.url }}{% endassign %}
+        {% endif %}
+        <div class="col-xs-12 col-sm-4 col-md-3 client-wrapper">
+          <a href="#"><img class="img-responsive lazy" {% if image.title %} alt="{{ image.title }}" {% endif %} src="{{ init_url }}"  data-original="{{ full.url }}"/>
+        </div>
+
+    {% endfor %}
+    </div>
+    <!-- /#caroufredsel-clients-container -->
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+    
+    
+{% addtoblock "js" %}
+  <script>
+    $("img.lazy").lazyload();
+    // jQuery CarouFredSel
+    var caroufredsel = function () {
+        tpj('#caroufredsel-portfolio-container').carouFredSel({
+            responsive: true,
+            scroll: 1,
+            circular: false,
+            infinite: false,
+            items: {
+                visible: {
+                    min: 1,
+                    max: 3
+                }
+            },
+            prev: '#portfolio-prev',
+            next: '#portfolio-next',
+            auto: {
+                play: false
+            }
+        });
+        tpj('#caroufredsel-clients-container').carouFredSel({
+            responsive: true,
+            scroll: 1,
+            circular: false,
+            infinite: false,
+            items: {
+                visible: {
+                    min: 1,
+                    max: 4
+                }
+            },
+            prev: '#client-prev',
+            next: '#client-next',
+            auto: {
+                play: false
+            }
+        });
+    };
+    tpj(window).load(function () {
+        caroufredsel();
+    });
+    tpj(window).resize(function () {
+        caroufredsel();
+    });            
+  </script>
+{% endaddtoblock %}

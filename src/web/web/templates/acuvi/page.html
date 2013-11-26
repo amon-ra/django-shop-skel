@@ -1,0 +1,36 @@
+{% extends "acuvi/base.html" %}
+{% load cms_tags sekizai_tags menu_tags placeholder_tags %}
+
+{% block 'content' %}
+<section id="our-services" class="section colored-wrapper">
+    <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-4 wrapper-1">
+                {% placeholder 'col1' %}
+          </div>
+          <!-- /.col-sm-6 -->
+          <div class="col-xs-12 col-sm-6 col-md-4 wrapper-1">
+                {% placeholder 'col2' %}
+          </div>
+          <!-- /.col-sm-6 -->
+          <div class="col-xs-12 col-sm-6 col-md-4 wrapper-1">
+                {% placeholder 'col3' %}
+          </div>
+          <!-- /.col-sm-6 -->          
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /#our-services -->      
+    <footer id="footer-2" class="footer">
+      <div class="container">
+        <div class="row">
+          {% show_placeholder "footer2" "inicio" %}
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </footer>
+    <!-- /#footer-2 -->    
+{% endblock %}

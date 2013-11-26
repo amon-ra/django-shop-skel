@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags menu_tags placeholder_tags %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-3">
+      {% placeholder col1 %}
+    </div>   
+    <div class="col-md-3">
+      {% placeholder col2 %}
+    </div>
+ 
+    <div class="col-md-3">
+      {% placeholder col3 %}
+    </div>      
+<!--      {% placeholder content or %}There is no content.{% endplaceholder %}-->
+  </div><!--/.row-->
+{% endblock %}

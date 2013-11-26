@@ -47,7 +47,7 @@ django-appconf
 #git+git://github.com/airtonix/django-shop-configurableproduct.git#egg=django_shop_configurableproduct
 #https://github.com/airtonix/django-shop-configurableproduct ##configurable product if needed
 django-shop-configurableproduct
-cmsplugin-configurableproduct
+#cmsplugin-configurableproduct
 
 
 git+git://github.com/philomat/django-form-designer.git#egg=django-form-designer
@@ -66,9 +66,7 @@ cmsplugin-twitter
 #git+git://github.com/netrocks/django-cms-social-networks#egg=cms_social_facebook
 
 django-blog-zinnia
-git+git://github.com/Fantomas42/cmsplugin-zinnia#egg=cmsplugin_zinnia
-
-
+cmsplugin_zinnia
 
 
 

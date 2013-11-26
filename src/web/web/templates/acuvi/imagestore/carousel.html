@@ -1,0 +1,67 @@
+{% load assign thumbnail sekizai_tags %}
+<ul>
+  {% for image in images %}
+    {% thumbnail image.image carousel.full_size as full %}
+    {% if forloop.counter0 == 0 %}
+      {% assign name="init_url" %}{{ full.url }}{% endassign %}
+    {% endif %}
+      <li data-transition="boxslide" data-slotamount="10" data-masterspeed="300" >
+        <img {% if image.title %} alt="{{ image.title }}" {% endif %} src="{{ init_url }}"  data-lazyload="{{ full.url }}"/>
+      </li>
+
+  {% endfor %}
+</ul>
+{% addtoblock "js" %}
+  <script>
+  tpj(document).ready(function () {
+      //tpj('img.lazy').lazyload();
+      // Revolution Slider
+      if (tpj.fn.cssOriginal != undefined)
+          tpj.fn.css = tpj.fn.cssOriginal;
+      tpj('.fullwidthbanner').revolution({
+          lazyLoad: "on",
+          delay: 5000,
+          startwidth: 980,
+          startheight: 250,
+  
+          onHoverStop: "on",
+  
+          thumbWidth: 196,
+          thumbHeight: 50,
+          thumbAmount: 3,
+  
+          hideThumbs: 0,
+  
+          navigationType: "none",
+          navigationArrows: "solo",
+          navigationStyle: "round",
+          navigationHAlign: "left",
+          navigationVAlign: "bottom",
+          navigationHOffset: 30,
+          navigationVOffset: 30,
+  
+          soloArrowLeftHalign: "left",
+          soloArrowLeftValign: "center",
+          soloArrowLeftHOffset: 20,
+          soloArrowLeftVOffset: 0,
+  
+          soloArrowRightHalign: "right",
+          soloArrowRightValign: "center",
+          soloArrowRightHOffset: 20,
+          soloArrowRightVOffset: 0,
+  
+          stopAtSlide: -1,
+          stopAfterLoops: -1,
+          hideCaptionAtLimit: 0,
+          hideAllCaptionAtLilmit: 0,
+          hideSliderAtLimit: 0,
+  
+          fullWidth: "on",
+          fullScreen: "off",
+          fullScreenOffsetContainer: "#topheader-to-offset",
+  
+          shadow: 0
+      });
+  });
+  </script>
+{% endaddtoblock %}

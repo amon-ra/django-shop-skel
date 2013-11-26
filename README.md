@@ -6,7 +6,7 @@ INSTALLATION.
 
 First install python and virtualenv. We use system site packages to prevent massive compilation on production servers, so first install important packages:
 
-- install Mysql, Sqlite, Postgres, Pillow, gunicorn and PIP.
+- install Mysql, Sqlite, Postgres, Pillow, gunicorn, werkzeug and pytz and PIP.
 
 In debian:
 
@@ -36,6 +36,8 @@ python-virtualenv
 python-yaml
 python-zmq
 gunicorn
+python-werkzeug
+python-tz
 
 After that clone repo and create env:
 

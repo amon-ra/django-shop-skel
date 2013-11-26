@@ -1,0 +1,26 @@
+{% load thumbnail sekizai_tags %}
+<div id='carusel{{ carousel.id }}' class="carousel slide">
+  <ol class="carousel-indicators">
+  {% for image in images %}
+    <li data-target='carusel{{ carousel.id }}' data-slide-to="{{forloop.counter0}}" {% if forloop.counter0 == 0 %} class="active" {% endif %} ></li>
+  {% endfor %}
+  </ol><!--./carousel-indicators-->
+  <div class="carousel-inner">
+  {% for image in images %}
+    {% thumbnail image.image carousel.full_size as full %}
+      <div class="{% if forloop.counter0 == 0 %}active {% endif %}item">
+          <img {% if image.title %} alt="{{ image.title }}" {% endif %} src="{{ full.url }}" />
+      </div><!--./item-->  
+    {% endthumbnail %}
+  {% endfor %}
+  </div><!--./carousel-inner -->
+  <a class="carousel-control left" href="#carusel{{ carousel.id }}" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#carusel{{ carousel.id }}" data-slide="next">&rsaquo;</a>
+</div><!--./carusel{{ carousel.id }}-->
+{% addtoblock "js" %}
+<script>
+    $(document).ready(function(){
+        $('.carousel').carousel()
+    });
+</script>
+{% endaddtoblock %}

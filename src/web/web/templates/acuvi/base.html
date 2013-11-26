@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}> <!--<![endif]-->
+
+{% load cms_tags sekizai_tags menu_tags placeholder_tags stack_tags %}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
+  <meta name="viewport" content="width=device-width">
+  <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+  <meta name="description" content="{% block meta_description %}{% endblock %}">
+  <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+  <link rel="shortcut icon" href="{{ STATIC_URL }}acuvi/img/favicon.ico">
+  {% render_block "css" %}
+  {% addtoblock "css" %}
+    <link href="{{ STATIC_URL }}acuvi/css/bootstrap.min.css" rel="stylesheet" type="text/css">  
+<!--    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+    </style>  -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}acuvi/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}acuvi/css/main.css">
+    <!-- FlatPoint -->
+    <!-- Plugins CSS -->
+    <link href="{{ STATIC_URL }}acuvi/assets/UItoTop/css/ui.totop.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}acuvi/assets/prettyPhoto/css/prettyPhoto.css" rel="stylesheet">
+    <!-- REVOLUTION BANNER CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}acuvi/assets/rs-plugin/css/settings.css" media="screen" />
+    <!-- Custom Stylesheet For This Template -->
+    <link href="{{ STATIC_URL }}acuvi/assets/css/stylesheet.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}acuvi/assets/css/skins.css" rel="stylesheet">
+    <!-- Font Awesome  -->    
+    <link href="{{ STATIC_URL }}acuvi/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="{{ STATIC_URL }}acuvi/css/cyc.css" rel="stylesheet" type="text/css">
+  {% endaddtoblock %}  
+  <script src="{{ STATIC_URL }}acuvi/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>  
+  {% addtoblock "js" %}
+    <script src="{{ STATIC_URL }}acuvi/assets/js/jquery-2.0.3.min.js"></script>
+    <script src="{{ STATIC_URL }}acuvi/assets/js/jquery-migrate-1.2.1.min.js"></script>
+  
+    <script src="{{ STATIC_URL }}acuvi/js/vendor/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}acuvi/js/main.js"></script>
+    <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src='//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>  
+    <script src="{{ STATIC_URL }}acuvi/assets/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="{{ STATIC_URL }}acuvi/assets/carouFredSel-6.2.1/jquery.carouFredSel-6.2.1.js"></script>
+    <script src="{{ STATIC_URL }}acuvi/assets/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+    <script src="{{ STATIC_URL }}acuvi/assets/jflickrfeed/jflickrfeed.min.js"></script>
+    <script src="{{ STATIC_URL }}acuvi/assets/UItoTop/js/easing.js"></script>
+    <script src="{{ STATIC_URL }}acuvi/assets/UItoTop/js/jquery.ui.totop.min.js"></script>
+    <script src="{{ STATIC_URL }}acuvi/assets/isotope-site/jquery.isotope.min.js"></script>
+    <script src="{{ STATIC_URL }}acuvi/assets/FitVids.js/jquery.fitvids.js"></script>
+    <script src="{{ STATIC_URL }}acuvi/assets/js/jquery.lazyload.min.js"></script>
+    <script type="text/javascript">
+        var tpj = jQuery;
+        tpj.noConflict();
+    </script>
+  {% endaddtoblock %} 
+</head>
+<body>
+  <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+  <![endif]-->
+  {% cms_toolbar %}
+  <div id="main-wrapper" class="color-skin-3">
+  {% block 'preheader' %}{% endblock %}
+    <header id="header-2" class="header">  
+      <nav class="navbar navbar-default" role="navigation">
+          <div class="container">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>              
+                {% block logo %}{% endblock %}
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse navbar-ex1-collapse">
+                  <ul class="nav navbar-nav">
+                    {% show_menu 0 100 100 100 %}
+                  </ul>
+                  <!-- /.nav -->
+              </div>
+              <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container -->
+      </nav>
+      <!-- /.navbar -->
+    </header> 
+    <!-- /#header-2 -->     
+
+    {% block 'banner' %}{% endblock %}
+
+    {% block 'content' %}{% endblock %}
+
+  </div><!-- /#main-wrapper -->  
+  {% render_block "js" %}
+  {% addtoblock "js" %}
+<!--    <script type="text/javascript">
+          tpj(document).ready(function () {
+            // PrettyPhoto
+            tpj("a[rel^='prettyPhoto']").prettyPhoto({
+                theme: 'light_square',
+                social_tools: false
+            });
+            // FitVids
+            tpj(".responsive-video-wrapper").fitVids();
+            // jflickrfeed
+            tpj('.flickr-photos-list').jflickrfeed({
+                limit: 9,
+                qstrings: {
+                    id: '71865026@N00'
+                },
+                itemTemplate: '<li><a href="{{image_b}}"><img src="{{image_s}}" alt="{{title}}" /></a></li>'
+            });
+            // jQuery UItoTop
+            tpj().UItoTop({ easingType: 'easeOutQuart' });
+            // Skin Chooser
+            tpj(".color-skin").click(function () {
+                var cls = this.id;
+                tpj(".color-skin").removeClass("active");
+                tpj(this).addClass("active");
+                tpj("#main-wrapper").removeClass();
+                tpj("#main-wrapper").addClass(cls);
+            });
+        });          
+    </script>    -->
+  {% endaddtoblock %}
+</body>
+</html>
