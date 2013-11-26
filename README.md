@@ -42,6 +42,7 @@ After that clone repo and create env:
 - git clone https://github.com/amon-ra/django-shop-skel newshop
 - cd newshop
 - virtualenv --system-site-packages env
+- source env/bin/activate
 
 install requirements:
 - pip install -r src/requirements.txt
