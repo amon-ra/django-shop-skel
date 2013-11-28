@@ -1,4 +1,6 @@
 
+#Bug 2308
+django-reversion<1.8
 
 ##These dependencies are brought in by django CMS, but if you want to lock-in their version, specify them
 #Django==1.5.1
@@ -24,8 +26,8 @@ git+git://github.com/divio/django-cms.git#egg=cms
 
 
 ##Optional, recommended packages
-#Pillow
-#gunicorn
+#Pillow         #installed in system
+#gunicorn       #installed in system
 jsonfield
 django-reversion
 djangocms_text_ckeditor
@@ -34,6 +36,7 @@ django-templateaddons
 
 #django-cms==3.0
 django-shop
+
 django-shop-categories
 django-shop-simplevariations
 django-shop-paypal
@@ -48,7 +51,7 @@ django-appconf
 #https://github.com/airtonix/django-shop-configurableproduct ##configurable product if needed
 django-shop-configurableproduct
 #cmsplugin-configurableproduct
-
+git+git://github.com/amon-ra/cmsplugin-shop.git#egg=cmsplugin_shop
 
 git+git://github.com/philomat/django-form-designer.git#egg=django-form-designer
 #cmsplugin-filer==0.9.5

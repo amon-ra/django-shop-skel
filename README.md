@@ -49,5 +49,14 @@ After that clone repo and create env:
 install requirements:
 - pip install -r src/requirements.txt
 
+Do initial configuration and start:
+- edit local_settings.py and configure database 
+- python manage.py syncdb --all
+- python manage.py migrate --fake
+
+Begin working:
+- python manage.py runserver
+
+
 
 

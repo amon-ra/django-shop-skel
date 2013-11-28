@@ -173,7 +173,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     #'cms.plugins.file',
-    #'cms.plugins.text',    
+    #'cms.plugins.text', #does not exist anymore use ckeditor   
     'cms.plugins.flash',
     'cms.plugins.googlemap',
     #'cms.plugins.link',
@@ -194,7 +194,7 @@ INSTALLED_APPS = (
     'cmsplugin_filer_video',    
     'cmsplugin_filer_link',
     'cmsplugin_filer_utils',  
-    'cmsplugin_filer_gallery',
+    #'cmsplugin_filer_gallery',
     'discount',
     'discount.default_discounts',
     'polymorphic',
@@ -216,9 +216,9 @@ INSTALLED_APPS = (
     'south',
     'sekizai', 
     'reversion',
-    'imagestore',
-    'sorl.thumbnail',
-    'imagestore.imagestore_cms',
+    #'imagestore',
+    #'sorl.thumbnail',
+    #'imagestore.imagestore_cms',
     'tagging',
     #'cmsplugin_gallery', #replaced by imagestore
     #'cms_themes', Fault PageAddForm (cms.admin.forms) no v3 compatible
