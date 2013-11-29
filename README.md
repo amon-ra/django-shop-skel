@@ -57,6 +57,7 @@ Do initial configuration and start:
 Begin working:
 - python manage.py runserver
 
+And create one page with home slug.
 
 
 

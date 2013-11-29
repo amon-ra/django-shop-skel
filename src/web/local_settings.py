@@ -13,7 +13,7 @@ from django.utils.translation import ugettext as _
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 INTERNAL_IPS = ('10.61.0.1',)
-
+#PUBLIC_PATH = os.path.join(os.path.split(os.path.split(os.path.split(PROJECT_PATH)[0])[0])[0],'web') #in production server
 
 #parameters from production db
 #DATABASES = {

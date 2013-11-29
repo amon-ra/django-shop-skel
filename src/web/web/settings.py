@@ -2,6 +2,8 @@
 import os
 gettext = lambda s: s
 PROJECT_PATH = os.path.split(os.path.abspath(os.path.dirname(__file__)))[0]
+PUBLIC_PATH = PROJECT_PATH
+
 # Django settings for cyc project.
 from django.utils.translation import ugettext as _
 
@@ -57,7 +59,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_PATH, "media")
+MEDIA_ROOT = os.path.join(PUBLIC_PATH, "media")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -68,7 +70,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_PATH, "static")
+STATIC_ROOT = os.path.join(PUBLIC_PATH, "static")
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -336,9 +338,9 @@ LANGUAGES = [
 #}
 CMS_TEMPLATES = (
     #('page.html',_('Base Page')),  
+    (os.path.join('acuvi','index.html'),_('Acuvi Index')),    
     (os.path.join('acuvi','page.html'),_('Acuvi Base')),
     (os.path.join('acuvi','banner3col.html'),_('Acuvi (Banner and 3 Cols)')),
-    (os.path.join('acuvi','index.html'),_('Acuvi Index')),
 )
 
 ##################

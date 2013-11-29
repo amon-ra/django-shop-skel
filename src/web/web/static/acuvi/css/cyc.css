@@ -1,0 +1,6 @@
+#djDebugToolbarHandle {
+  width: 10px;
+}
+.navbar {
+ z-index: 998; 
+}
